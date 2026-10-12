@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Watchlist</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+    
+</head>
+<body>
+
+    <h1>🎬 Movie Watchlist</h1>
+
+    <form id="movieForm">
+
+        <label for="movieTitle">Movie Title</label>
+        <input
+            type="text"
+            id="movieTitle"
+            placeholder="Enter a movie title"
+        >
+
+        <label for="movieGenre">Genre</label>
+        <select id="movieGenre">
+            <option value="">Choose a genre</option>
+            <option value="Action">Action</option>
+            <option value="Adventure">Adventure</option>
+            <option value="Comedy">Comedy</option>
+            <option value="Drama">Drama</option>
+            <option value="Horror">Horror</option>
+            <option value="Sci-Fi">Sci-Fi</option>
+        </select>
+
+        <button type="submit">Add Movie</button>
+
+    </form>
+
+    <p id="formMessage"></p>
+
+    <ul id="movieList"></ul>
+
+    <p id="emptyMessage"></p>
+
+</body>
+</html>
