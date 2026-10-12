@@ -7,20 +7,25 @@ const emptyMessage = document.getElementById("emptyMessage");
 
 const watchlist = {
     movies: [
-        {
-            title: "The Princess Bride",
-            genre: "Adventure",
-            watched: false
-        }
-    ],
+    {
+        title: "The Princess Bride",
+        genre: "Adventure",
+        watched: false
+    },
+    {
+        title: "Finding Nemo",
+        genre: "Animation",
+        watched: false
+    }
+],
 
     toggleWatched(index) {
-        // TODO (Step 4)
-    },
+    this.movies[index].watched = !this.movies[index].watched;
+},
 
-    removeMovie(index) {
-        // TODO (Step 4)
-    }
+removeMovie(index) {
+    this.movies.splice(index, 1);
+}
 };
 
 function saveMovies() {
@@ -46,13 +51,23 @@ function renderMovies() {
             `${movie.genre} • ${movie.watched ? "Watched" : "Not watched"}`;
 
         const toggleButton = document.createElement("button");
-        toggleButton.type = "button";
-        toggleButton.textContent =
-            movie.watched ? "Mark Unwatched" : "Mark Watched";
+toggleButton.type = "button";
+toggleButton.textContent =
+    movie.watched ? "Mark Unwatched" : "Mark Watched";
+
+toggleButton.addEventListener("click", () => {
+    watchlist.toggleWatched(index);
+    renderMovies();
+});
 
         const removeButton = document.createElement("button");
-        removeButton.type = "button";
-        removeButton.textContent = "Remove";
+removeButton.type = "button";
+removeButton.textContent = "Remove";
+
+removeButton.addEventListener("click", () => {
+    watchlist.removeMovie(index);
+    renderMovies();
+});
 
         card.append(
             title,
