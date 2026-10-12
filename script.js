@@ -29,11 +29,22 @@ const watchlist = {
 };
 
 function saveMovies() {
-    // TODO (Step 6)
+    localStorage.setItem(
+        "movies",
+        JSON.stringify(watchlist.movies)
+    );
 }
 
 function loadMovies() {
-    // TODO (Step 6)
+    const saved = localStorage.getItem("movies");
+
+    if (saved !== null) {
+        try {
+            watchlist.movies = JSON.parse(saved);
+        } catch {
+            watchlist.movies = [];
+        }
+    }
 }
 
 function renderMovies() {
@@ -56,18 +67,20 @@ function renderMovies() {
             movie.watched ? "Mark Unwatched" : "Mark Watched";
 
         toggleButton.addEventListener("click", () => {
-            watchlist.toggleWatched(index);
-            renderMovies();
-        });
+    watchlist.toggleWatched(index);
+    saveMovies();
+    renderMovies();
+});
 
         const removeButton = document.createElement("button");
         removeButton.type = "button";
         removeButton.textContent = "Remove";
 
         removeButton.addEventListener("click", () => {
-            watchlist.removeMovie(index);
-            renderMovies();
-        });
+    watchlist.removeMovie(index);
+    saveMovies();
+    renderMovies();
+});
 
         card.append(
             title,
@@ -104,16 +117,18 @@ form.addEventListener("submit", (event) => {
     }
 
     watchlist.movies.push({
-        title: title,
-        genre: genre,
-        watched: false
-    });
+    title: title,
+    genre: genre,
+    watched: false
+});
 
-    renderMovies();
+saveMovies();
+renderMovies();
 
     message.textContent = "";
     titleInput.value = "";
     genreSelect.value = "";
 });
 
+loadMovies();
 renderMovies();
