@@ -6,18 +6,7 @@ const movieList = document.getElementById("movieList");
 const emptyMessage = document.getElementById("emptyMessage");
 
 const watchlist = {
-    movies: [
-        {
-            title: "The Princess Bride",
-            genre: "Adventure",
-            watched: false
-        },
-        {
-            title: "Finding Nemo",
-            genre: "Animation",
-            watched: false
-        }
-    ],
+    movies: [],
 
     toggleWatched(index) {
         this.movies[index].watched = !this.movies[index].watched;
@@ -29,10 +18,7 @@ const watchlist = {
 };
 
 function saveMovies() {
-    localStorage.setItem(
-        "movies",
-        JSON.stringify(watchlist.movies)
-    );
+    localStorage.setItem("movies", JSON.stringify(watchlist.movies));
 }
 
 function loadMovies() {
@@ -67,20 +53,20 @@ function renderMovies() {
             movie.watched ? "Mark Unwatched" : "Mark Watched";
 
         toggleButton.addEventListener("click", () => {
-    watchlist.toggleWatched(index);
-    saveMovies();
-    renderMovies();
-});
+            watchlist.toggleWatched(index);
+            saveMovies();
+            renderMovies();
+        });
 
         const removeButton = document.createElement("button");
         removeButton.type = "button";
         removeButton.textContent = "Remove";
 
         removeButton.addEventListener("click", () => {
-    watchlist.removeMovie(index);
-    saveMovies();
-    renderMovies();
-});
+            watchlist.removeMovie(index);
+            saveMovies();
+            renderMovies();
+        });
 
         card.append(
             title,
@@ -117,13 +103,13 @@ form.addEventListener("submit", (event) => {
     }
 
     watchlist.movies.push({
-    title: title,
-    genre: genre,
-    watched: false
-});
+        title: title,
+        genre: genre,
+        watched: false
+    });
 
-saveMovies();
-renderMovies();
+    saveMovies();
+    renderMovies();
 
     message.textContent = "";
     titleInput.value = "";

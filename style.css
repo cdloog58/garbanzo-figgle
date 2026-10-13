@@ -1,0 +1,124 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background: #111;
+    color: white;
+    max-width: 900px;
+    margin: 30px auto;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: #f5c542;
+    margin-bottom: 25px;
+    font-size: 2.5rem;
+    text-shadow: 2px 2px 5px black;
+}
+
+form {
+    background-color: #8b0000;
+    padding: 20px;
+    border-radius: 12px;
+    border: 3px solid #f5c542;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+label {
+    font-weight: bold;
+    color: #f5c542;
+}
+
+input,
+select {
+    padding: 12px;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+}
+
+button {
+    padding: 10px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+form button {
+    background-color: #f5c542;
+    color: #111;
+}
+
+form button:hover {
+    background-color: #ffd95e;
+    transform: scale(1.03);
+}
+
+#formMessage {
+    color: #ff6961;
+    margin-top: 10px;
+    font-weight: bold;
+    text-align: center;
+}
+
+#emptyMessage {
+    text-align: center;
+    margin-top: 20px;
+    color: #ccc;
+    font-style: italic;
+}
+
+#movieList {
+    list-style: none;
+    margin-top: 25px;
+}
+
+#movieList li {
+    background-color: #222;
+    border-left: 6px solid #f5c542;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(245, 197, 66, 0.3);
+}
+
+#movieList h3 {
+    color: #f5c542;
+    margin-bottom: 8px;
+}
+
+#movieList p {
+    color: #ddd;
+    margin-bottom: 12px;
+}
+
+#movieList button {
+    margin-right: 10px;
+}
+
+#movieList button:first-of-type {
+    background-color: #28a745;
+    color: white;
+}
+
+#movieList button:first-of-type:hover {
+    background-color: #218838;
+}
+
+#movieList button:last-of-type {
+    background-color: #dc3545;
+    color: white;
+}
+
+#movieList button:last-of-type:hover {
+    background-color: #c82333;
+}
